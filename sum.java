@@ -1,13 +1,54 @@
 import java.util.Scanner;
 public class sum {
     public static void main(String[] args) {
-       System.out.println("Input two numbers. Press enter between each integer.");
-       Scanner userInput = new Scanner(System.in);
 
-       int a = userInput.nextInt();
-       int b = userInput.nextInt();
-       userInput.close();
+       while(true) {
+           System.out.println("Welcome! Input two numbers.\n Press enter between each number.\n Note: this program rounds the answer with no decimal places.");
+           Scanner userInput = new Scanner(System.in);
 
-       System.out.println("The sum of your integers is: " + Integer.sum(a, b));
+           double a = userInput.nextDouble();
+           double b = userInput.nextDouble();
+
+           System.out.println("Enter an operator: +, -, *, /, %");
+           char op = userInput.next().charAt(0);
+           double result;
+
+           switch (op) {
+               case '+':
+                   result = a + b;
+                   break;
+
+               case '-':
+                   result = a - b;
+                   break;
+
+               case '*':
+                   result = a * b;
+                   break;
+
+               case '/':
+                   result = a / b;
+                   break;
+
+               case '%':
+                   result = a % b;
+                   break;
+
+               default:
+                   System.out.println("Warning! Invalid operator. Try again.");
+
+                   return;
+           }
+           System.out.println("Your result is " + Math.round(result));
+           System.out.println("Would you like to continue? (y/n)");
+           String ans = userInput.next();
+
+           if(!ans.equals("y")) {
+               break;
+           }
+
+
+
+       }
     }
 }
